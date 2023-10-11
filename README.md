@@ -68,4 +68,4 @@ Contributions to this project are welcome! If you have ideas for improving the w
 
 ## License
 
-This project is licensed under the MIT License
+This project is licensed under the MIT [License](license.txt)
