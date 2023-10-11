@@ -1,0 +1,5 @@
+selenium==4.10.0
+webdriver-manager==3.4.1
+time==8.0.3
+os==0.4.4
+json==4.12.2
