@@ -12,7 +12,6 @@ from selenium.webdriver.support.ui import Select
 
 #chrome options for wd
 chrome_options = Options()
-# chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 
 #path to chromedriver
@@ -24,7 +23,7 @@ driver = webdriver.Chrome(service=webdriver_service,options=chrome_options)
 driver.implicitly_wait(10)
 
 driver.get("https://atlas.ai.umich.edu")
-time.sleep(40)
+time.sleep(40) #time to get duo login
 driver.get("https://atlas.ai.umich.edu/courses/")
 flag=False
 results = {}
@@ -36,8 +35,6 @@ while True:
     driver.get("https://atlas.ai.umich.edu/courses/?page="+str(j))
     try: 
       el1 = driver.find_element(By.XPATH,"/html/body/div[1]/div/div[2]/div[2]/div[1]/div/p")
-      print("Got element")
-      print(el1.text,type(el1.text))
       if "No Results. Try adjusting your selected" in el1.text:
         print("Ended")
         break
@@ -48,21 +45,18 @@ while True:
       try:
         element = driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[2]/div[3]/div["+str(i)+"]/a")
         href = element.get_attribute("href")
-        print(href)
-        print(element.text)
         results[element.text] = {"Link":href,"Class Title":None,"Cross-References":[],"Median Grade":None,"Credits":None,"Desire to Take":None,"Understanding":None,"Workload":None,"Expectations":None,"Increased Interest":None}
         hit+=1
-        print(missed)
       except: 
         missed+=1
-        print(missed,"in except")
   except: 
     pass
+
+driver.close()
 
 file_path = "webscraper/data/atlasdict.json"
 with open(file_path, 'w') as json_file:
     json.dump(results, json_file,indent=2)
 print("Finished scraping ATLAS for links, collected",hit,"links and missed",missed,"links.")
 print("Data was stored in",file_path)
-driver.close()
 
