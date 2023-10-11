@@ -42,3 +42,30 @@ Before using the **UMICH Atlas Web Scraper and Academic Advisor**, you'll need t
    ```bash
    git clone https://github.com/your-username/umich-atlas-scraper.git
    cd umich-atlas-scraper
+
+2. (Recommended) Set up a Virtual Machine
+
+  ```bash
+  python -m venv venv
+  source venv/bin/activate  # On Windows: venv\Scripts\activate
+  pip install -r [foldername]/requirements.txt # input the folder you want to use
+
+## Usage 
+
+ - To use specific features, README's within the folders describe how. 
+ - A rule of thumb is to always run files from the ATLAS directory, rather than from a subfolder
+
+## Contributing
+
+Contributions to this project are welcome! If you have ideas for improving the web scraper, adding new analysis features, or enhancing the user interface, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push to your fork.
+4. Create a pull request.
+
+ - Please be sure to follow the project's coding standards and adhere to best practices.
+
+## License
+
+This project is licensed under the MIT License
