@@ -49,9 +49,8 @@ for key in results:
     results[key]["Expectations"] = expectations
     interest=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[5]/div[1]/h5").text[:-1])
     results[key]["Increased Interest"] = interest
-    print(credits,mediangrade,title,desire)
   except: 
-    print("Couldn't find all values")
+    print("Couldn't find all values for",key)
     pass
 
 driver.close()
