@@ -45,10 +45,10 @@ Before using the **UMICH Atlas Web Scraper and Academic Advisor**, you'll need t
 
 2. (Recommended) Set up a Virtual Machine
 
-  ```bash
-  python -m venv venv
-  source venv/bin/activate  # On Windows: venv\Scripts\activate
-  pip install -r [foldername]/requirements.txt # input the folder you want to use
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r [foldername]/requirements.txt # input the folder you want to use
 
 ## Usage 
 
