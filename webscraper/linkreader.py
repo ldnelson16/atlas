@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 
 #read in links json
-file_path = "webscraper/data/atlasdict.json"
+file_path = "webscraper/data/atlasdictfinal.json"
 with open(file_path, 'r') as json_file:
   results = json.load(json_file)
 
@@ -30,32 +30,42 @@ driver.implicitly_wait(10)
 driver.get("https://atlas.ai.umich.edu")
 time.sleep(40) # time to get logged in with duo
 
+i=0
 for key in results:
-  try:
-    driver.get(results[key]["Link"])
-    title=driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div/div[1]/div[2]/div[1]/div[2]/div[1]/h2").text
-    results[key]["Class Title"]=title
-    credits=float(driver.find_element(By.XPATH,'//*[@id="credits"]/p').text[9:])
-    results[key]["Credits"]=credits
-    mediangrade=driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div/div[2]/div/p[1]/span").text
-    results[key]["Median Grade"] = mediangrade
-    desire=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[1]/div[1]/h5").text[:-1])
-    results[key]["Desire to Take"] = desire
-    understanding=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[2]/div[1]/h5").text[:-1])
-    results[key]["Understanding"] = understanding
-    workload=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[3]/div[1]/h5").text[:-1])
-    results[key]["Workload"] = workload
-    expectations=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[4]/div[1]/h5").text[:-1])
-    results[key]["Expectations"] = expectations
-    interest=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[5]/div[1]/h5").text[:-1])
-    results[key]["Increased Interest"] = interest
-  except: 
-    print("Couldn't find all values for",key)
-    pass
+  i+=1
+  if i%100==0:
+    file_path = "webscraper/data/atlasdictfinal1.json"
+    with open(file_path, 'w') as json_file:
+        json.dump(results, json_file,indent=2)
+    print("Finished adding information from links.")
+    print("Data was stored in",file_path)
+
+  if results[key]["Class Title"]==None:
+    try:
+      driver.get(results[key]["Link"])
+      title=driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div/div[1]/div[2]/div[1]/div[2]/div[1]/h2").text
+      results[key]["Class Title"]=title
+      credits=float(driver.find_element(By.XPATH,'//*[@id="credits"]/p').text[9:])
+      results[key]["Credits"]=credits
+      mediangrade=driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div/div[2]/div/p[1]/span").text
+      results[key]["Median Grade"] = mediangrade
+      desire=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[1]/div[1]/h5").text[:-1])
+      results[key]["Desire to Take"] = desire
+      understanding=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[2]/div[1]/h5").text[:-1])
+      results[key]["Understanding"] = understanding
+      workload=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[3]/div[1]/h5").text[:-1])
+      results[key]["Workload"] = workload
+      expectations=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[4]/div[1]/h5").text[:-1])
+      results[key]["Expectations"] = expectations
+      interest=int(driver.find_element(By.XPATH,"/html/body/div[1]/div[4]/div[2]/div[5]/div[1]/h5").text[:-1])
+      results[key]["Increased Interest"] = interest
+    except: 
+      print("Couldn't find all values for",key)
+      pass
 
 driver.close()
 
-file_path = "webscraper/data/atlasdict.json"
+file_path = "webscraper/data/atlasdictfinal1.json"
 with open(file_path, 'w') as json_file:
     json.dump(results, json_file,indent=2)
 print("Finished adding information from links.")
