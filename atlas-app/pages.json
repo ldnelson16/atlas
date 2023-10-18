@@ -1,0 +1,7 @@
+{
+  "app.py":"UMICH COURSE ANALYSIS",
+  "semester_analysis":{
+    "total_evaluation":"Total Evaluation",
+    "workload_evaluation":"Workload Evaluation"
+  }
+}
