@@ -1,5 +1,7 @@
 import tkinter as tk
 import json
+from semester_analysis.total_evaluation import total_evaluation_page
+from semester_analysis.workload_evaluation import workload_evaluation_page
 
 def get_final_values(d,term=""):
   final_paths = []
@@ -20,4 +22,4 @@ def change_page(pagename,root):
     widget.destroy()
   for path_name,path_value in path_names:
     if path_value==pagename:
-      print("A")
+      globals()[path_value.lower().replace(" ", "_")+"_page"](root)

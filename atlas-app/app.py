@@ -1,5 +1,10 @@
 import tkinter as tk
 from semester_analysis.total_evaluation import total_evaluation_page
+from change_page import change_page
+import json
+
+with open("atlas-app/pages.json", 'r') as json_file:
+  paths = json.load(json_file)
 
 def create_popup():
     popup = tk.Toplevel(root)
@@ -27,8 +32,8 @@ menu = tk.Menu(root)
 dropdown_menu1 = tk.Menu(menu, tearoff=0)
 
 # Add items to the dropdown menu
-dropdown_menu1.add_command(label="Total Evaluation",command=lambda:total_evaluation_page(root))
-dropdown_menu1.add_command(label="Workload Evaluation")
+dropdown_menu1.add_command(label="Total Evaluation",command=lambda:change_page("Total Evaluation",root))
+dropdown_menu1.add_command(label="Workload Evaluation",command=lambda:change_page("Workload Evaluation",root))
 
 # Add top-level items with dropdown menus
 menu.add_cascade(label="Semester Analysis", menu=dropdown_menu1)
