@@ -31,7 +31,9 @@ The collected data is then processed and analyzed to address various academic-re
   - Exploring trends in course popularity and difficulty
   - Recommending electives based on your academic goals
 
-- **User-Friendly Interface:** A command-line interface (CLI) makes the tool accessible to all students, allowing for easy interaction with the system.
+- **User-Friendly Interface:** Both a graphical user interface (GUI) and a command-line interface (CLI) makes the tool accessible to all students, allowing for easy interaction with the system.
+  - GUI designed using Python's Tkinter library, downloadable in Windows, Mac, and Linux.
+  - A command line interface can be used with the API implementation of The Atlas Project. 
 
 ## Getting Started
 
