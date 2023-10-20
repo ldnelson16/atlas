@@ -1,5 +1,6 @@
 import tkinter as tk
 import json
+from components.error_404 import error_404_page
 from semester_analysis.total_evaluation import total_evaluation_page
 from semester_analysis.workload_evaluation import workload_evaluation_page
 
@@ -22,4 +23,7 @@ def change_page(pagename,root):
     widget.destroy()
   for path_name,path_value in path_names:
     if path_value==pagename:
-      globals()[path_value.lower().replace(" ", "_")+"_page"](root)
+      try:
+        globals()[path_value.lower().replace(" ", "_")+"_page"](root)
+      except:
+        error_404_page(root)
