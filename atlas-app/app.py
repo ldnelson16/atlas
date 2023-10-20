@@ -8,7 +8,10 @@ with open("atlas-app/pages.json", 'r') as json_file:
 
 root = tk.Tk()
 root.title("THE ATLAS PROJECT - UMICH Course Analysis")
-root.geometry('800x500')
+
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+root.geometry(f"{screen_width}x{screen_height}")
 
 home_page(root)
 
