@@ -7,6 +7,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Download](#download)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
@@ -18,6 +19,11 @@
 The **UMICH Atlas Web Scraper and Academic Advisor** project offers an innovative approach to academic planning and decision-making. It leverages web scraping techniques, powered by the Selenium library, to gather essential information from the University of Michigan's ATLAS platform. This data includes class offerings, course details, student reviews, and other academic resources.
 
 The collected data is then processed and analyzed to address various academic-related questions and concerns. Whether you're a student looking to optimize your academic journey, explore double major opportunities, or simply make informed decisions about your coursework, this project provides valuable insights.
+
+## Download
+
+- A downloadable executable is available (currently only for Windows) within the executable folder. This was built using the Tkinter library built into python. Please make sure to utilize your antiVirus software on this file before installing. I can attest to its safety (I have run it on my machine with no problems), but you should never be in the habit of blindly opening .exe's. 
+- The link is [here](https://github.com/ldnelson16/atlas/tree/master/download)
 
 ## Features
 
