@@ -13,12 +13,15 @@ def get_entries(root,entries,submit_button,right_frame):
         if (entry.get()!=""):
             results.append(entry.get())
 
+    for widget in right_frame.winfo_children():
+        widget.destroy()
+
     # Create a ttk.Treeview widget as a table
     table = ttk.Treeview(right_frame, columns=("Class", "Workload"), show="headings")
     table.heading("Class", text="Class")
     table.heading("Workload", text="Workload")
 
-    data = [(result,atlasdict[result]["Workload"]) if atlasdict[result]["Workload"]!=None else "-" for result in results]
+    data = [(result,atlasdict[result]["Workload"]) if atlasdict[result]["Workload"]!=None else (result,"-") for result in results]
     for item in data:
         table.insert("", "end", values=item)
     table.pack(pady=20)
@@ -28,11 +31,11 @@ def get_entries(root,entries,submit_button,right_frame):
     table_stats.heading("Value", text="Value")
 
     classes_w_data = sum([1 if atlasdict[result]["Workload"]!=None else 0 for result in results])
-    total_credits = sum([atlasdict[result]["Credits"] if atlasdict[result]["Workload"]!=None else 0 for result in results])
+    total_credits = sum([atlasdict[result]["Credits"] for result in results])
     total_workload = sum([atlasdict[result]["Workload"] if atlasdict[result]["Workload"]!=None else 0 for result in results])
     avg_credits = total_credits / classes_w_data
     stats = [
-            ("Classes w/ Data",classes_w_data),
+            ("Classes w/ Data",str(classes_w_data)+"/"+str(len(results))),
             ("Average Class Workload", "{:.2f}".format(total_workload/classes_w_data)),
             ("Average Weighted Class Workload","{:.2f}".format(sum([atlasdict[result]["Workload"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Workload"]!=None else 0 for result in results])/classes_w_data)),
             ("Total Workload",total_workload)
