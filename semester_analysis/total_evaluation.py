@@ -30,31 +30,25 @@ def get_entries(root,entries,submit_button,right_frame):
     total_credits = sum([atlasdict[result]["Credits"] if atlasdict[result]["Credits"]!=None else 0 for result in results])
     avg_credits = total_credits / classes_w_data
     total_dtt = sum([atlasdict[result]["Desire to Take"] if atlasdict[result]["Desire to Take"]!=None else 0 for result in results])
-    weighted_dtt = sum([atlasdict[result]["Desire to Take"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Desire to Take"]!=None else 0 for result in results])
+    weighted_dtt = sum([atlasdict[result]["Desire to Take"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Desire to Take"]!=None else 0 for result in results])/classes_w_data
     total_understanding = sum([atlasdict[result]["Understanding"] if atlasdict[result]["Understanding"]!=None else 0 for result in results])
-    weighted_understanding = sum([atlasdict[result]["Understanding"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Understanding"]!=None else 0 for result in results])
+    weighted_understanding = sum([atlasdict[result]["Understanding"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Understanding"]!=None else 0 for result in results])/classes_w_data
     total_workload = sum([atlasdict[result]["Workload"] if atlasdict[result]["Workload"]!=None else 0 for result in results])
-    weighted_workload = sum([atlasdict[result]["Workload"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Workload"]!=None else 0 for result in results])
+    weighted_workload = sum([atlasdict[result]["Workload"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Workload"]!=None else 0 for result in results])/classes_w_data
     total_expectations = sum([atlasdict[result]["Expectations"] if atlasdict[result]["Expectations"]!=None else 0 for result in results])
-    weighted_expectations = sum([atlasdict[result]["Expectations"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Expectations"]!=None else 0 for result in results])
+    weighted_expectations = sum([atlasdict[result]["Expectations"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Expectations"]!=None else 0 for result in results])/classes_w_data
     total_ii = sum([atlasdict[result]["Increased Interest"] if atlasdict[result]["Increased Interest"]!=None else 0 for result in results])
-    weighted_ii = sum([atlasdict[result]["Increased Interest"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Increased Interest"]!=None else 0 for result in results])
+    weighted_ii = sum([atlasdict[result]["Increased Interest"]*atlasdict[result]["Credits"]/avg_credits if atlasdict[result]["Increased Interest"]!=None else 0 for result in results])/classes_w_data
 
     info.append(("","","","","",""))
     info.append(("Classes w/ Data",str(classes_w_data)+"/"+str(len(results)),"","","",""))
     info.append(("Average","{:.2f}".format(total_dtt/classes_w_data),"{:.2f}".format(total_understanding/classes_w_data),"{:.2f}".format(total_workload/classes_w_data),"{:.2f}".format(total_expectations/classes_w_data),"{:.2f}".format(total_ii/classes_w_data)))
-    info.append(("Weighted Average","{:.2f}".format(weighted_dtt/classes_w_data),"{:.2f}".format(weighted_understanding/classes_w_data),"{:.2f}".format(weighted_workload/classes_w_data),"{:.2f}".format(weighted_expectations/classes_w_data),"{:.2f}".format(weighted_ii/classes_w_data)))
+    info.append(("Weighted Average","{:.2f}".format(weighted_dtt),"{:.2f}".format(weighted_understanding),"{:.2f}".format(weighted_workload),"{:.2f}".format(weighted_expectations),"{:.2f}".format(weighted_ii)))
     info.append(("Total",total_dtt,total_understanding,total_workload,total_expectations,total_ii))
     statuses = []
-    for ele,t1,t2,t3 in [(total_dtt,150,200,250),(total_understanding,150,200,250),(total_workload,125,150,175),(total_expectations,150,225,300),(total_ii,150,200,250)]:
-        if ele < t1:
-            statuses.append("Light")
-        elif ele < t2:
-            statuses.append("Moderate")
-        elif ele < t3:
-            statuses.append("Heavy")
-        else:
-            statuses.append("Extreme")
+    for wtd in [weighted_dtt,weighted_understanding,weighted_workload,weighted_expectations,weighted_ii]:
+        composite = wtd*total_credits
+        statuses.append(composite)
     info.append(("Status",statuses[0],statuses[1],statuses[2],statuses[3],statuses[4]))
 
     for item in info:
