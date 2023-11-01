@@ -35,7 +35,7 @@ for key in lettersgotten:
   summissed+=lettersgotten[key]["Missed"]
 print("Got:",sumgot,", Missed:",summissed)
 
-file_path = "webscraper/data/atlasdictfinal.json"
+file_path = "webscraper/data/atlasdictfinal1.json"
 with open(file_path, 'w') as json_file:
     json.dump(results, json_file,indent=2)
 

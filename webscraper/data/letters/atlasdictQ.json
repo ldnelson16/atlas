@@ -1,74 +1,74 @@
 {
- "QMSS 201": {
-  "Link": "https://atlas.ai.umich.edu/course/QMSS%20201",
-  "Class Title": "Intro to Quantitative Methods in the Social Sciences",
-  "Cross-References": [],
-  "Median Grade": "A",
-  "Credits": 4.0,
-  "Desire to Take": 86,
-  "Understanding": 90,
-  "Workload": 23,
-  "Expectations": 84,
-  "Increased Interest": 79
- },
- "QMSS 295": {
-  "Link": "https://atlas.ai.umich.edu/course/QMSS%20295",
-  "Class Title": "Special Topics in Quantitative Methods in the Social Sciences",
-  "Cross-References": [],
-  "Median Grade": null,
-  "Credits": null,
-  "Desire to Take": null,
-  "Understanding": null,
-  "Workload": null,
-  "Expectations": null,
-  "Increased Interest": null
- },
- "QMSS 301": {
-  "Link": "https://atlas.ai.umich.edu/course/QMSS%20301",
-  "Class Title": "Quantitative Social Science Analysis and Big Data",
-  "Cross-References": [],
-  "Median Grade": "A",
-  "Credits": 4.0,
-  "Desire to Take": 79,
-  "Understanding": 93,
-  "Workload": null,
-  "Expectations": null,
-  "Increased Interest": null
- },
- "QMSS 451": {
-  "Link": "https://atlas.ai.umich.edu/course/QMSS%20451",
-  "Class Title": "QMSS Senior Capstone: Social Science Study Management",
-  "Cross-References": [],
-  "Median Grade": "A",
-  "Credits": 3.0,
-  "Desire to Take": 79,
-  "Understanding": 93,
-  "Workload": 7,
-  "Expectations": 77,
-  "Increased Interest": 62
- },
- "QMSS 495": {
-  "Link": "https://atlas.ai.umich.edu/course/QMSS%20495",
-  "Class Title": "Special Topics in Quantitative Methods in the Social Sciences",
-  "Cross-References": [],
-  "Median Grade": null,
-  "Credits": null,
-  "Desire to Take": null,
-  "Understanding": null,
-  "Workload": null,
-  "Expectations": null,
-  "Increased Interest": null
- },
- "QMSS 499": {
-  "Link": "https://atlas.ai.umich.edu/course/QMSS%20499",
-  "Class Title": "Independent Study",
-  "Cross-References": [],
-  "Median Grade": null,
-  "Credits": null,
-  "Desire to Take": null,
-  "Understanding": null,
-  "Workload": null,
-  "Expectations": null,
-  "Increased Interest": null
- }
+  "QMSS 201": {
+    "Link": "https://atlas.ai.umich.edu/course/QMSS%20201",
+    "Class Title": "Intro to Quantitative Methods in the Social Sciences",
+    "Cross-References": [],
+    "Median Grade": "A",
+    "Credits": 4.0,
+    "Desire to Take": 86,
+    "Understanding": 90,
+    "Workload": 23,
+    "Expectations": 84,
+    "Increased Interest": 79
+  },
+  "QMSS 295": {
+    "Link": "https://atlas.ai.umich.edu/course/QMSS%20295",
+    "Class Title": "Special Topics in Quantitative Methods in the Social Sciences",
+    "Cross-References": [],
+    "Median Grade": "N/A",
+    "Credits": "1.0 \u2013 4.0",
+    "Desire to Take": null,
+    "Understanding": null,
+    "Workload": null,
+    "Expectations": null,
+    "Increased Interest": null
+  },
+  "QMSS 301": {
+    "Link": "https://atlas.ai.umich.edu/course/QMSS%20301",
+    "Class Title": "Quantitative Social Science Analysis and Big Data",
+    "Cross-References": [],
+    "Median Grade": "A",
+    "Credits": 4.0,
+    "Desire to Take": 79,
+    "Understanding": 93,
+    "Workload": null,
+    "Expectations": 69,
+    "Increased Interest": 90
+  },
+  "QMSS 451": {
+    "Link": "https://atlas.ai.umich.edu/course/QMSS%20451",
+    "Class Title": "QMSS Senior Capstone: Social Science Study Management",
+    "Cross-References": [],
+    "Median Grade": "A",
+    "Credits": 3.0,
+    "Desire to Take": 79,
+    "Understanding": 93,
+    "Workload": 7,
+    "Expectations": 77,
+    "Increased Interest": 62
+  },
+  "QMSS 495": {
+    "Link": "https://atlas.ai.umich.edu/course/QMSS%20495",
+    "Class Title": "Special Topics in Quantitative Methods in the Social Sciences",
+    "Cross-References": [],
+    "Median Grade": "N/A",
+    "Credits": "1.0 \u2013 4.0",
+    "Desire to Take": null,
+    "Understanding": null,
+    "Workload": null,
+    "Expectations": null,
+    "Increased Interest": null
+  },
+  "QMSS 499": {
+    "Link": "https://atlas.ai.umich.edu/course/QMSS%20499",
+    "Class Title": "Independent Study",
+    "Cross-References": [],
+    "Median Grade": "N/A",
+    "Credits": "1.0 \u2013 4.0",
+    "Desire to Take": null,
+    "Understanding": null,
+    "Workload": null,
+    "Expectations": null,
+    "Increased Interest": null
+  }
 }

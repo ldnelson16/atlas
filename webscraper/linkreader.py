@@ -1,6 +1,7 @@
 import json
 import time
 import os
+import sys
 
 #selenium
 import os.path
@@ -10,8 +11,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 
+letter=sys.argv[1]
+print("Letter analyzed is",letter)
+
 #read in links json
-file_path = "webscraper/data/atlasdictfinal.json"
+file_path = "webscraper/data/letters/atlasdict"+letter+".json"
 with open(file_path, 'r') as json_file:
   results = json.load(json_file)
 
@@ -31,16 +35,16 @@ driver.get("https://atlas.ai.umich.edu")
 time.sleep(30) # time to get logged in with duo
 
 i=0
-letter="A"
 for key in results:
   i+=1
   if i%100==0:
-    file_path = "webscraper/data/letters/atlasdictfinal"+letter+".json"
+    file_path = "webscraper/data/letters/atlasdict"+letter+".json"
     with open(file_path, 'w') as json_file:
         json.dump(results, json_file,indent=2)
     print("Finished adding information from links.")
     print("Data was stored in",file_path)
-  if key[0]==letter and results[key]["Class Title"]==None or results[key]["Median Grade"]==None or results[key]["Credits"]==None or results[key]["Desire to Take"]==None or results[key]["Understanding"]==None or results[key]["Workload"] or results[key]["Expectations"] or results[key]["Increased Interest"]:
+  if key[0]==letter and (results[key]["Class Title"]==None or results[key]["Median Grade"]==None or results[key]["Credits"]==None or results[key]["Desire to Take"]==None or results[key]["Understanding"]==None or results[key]["Workload"]==None or results[key]["Expectations"]==None or results[key]["Increased Interest"]==None):
+    print(key)
     try:
       driver.get(results[key]["Link"])
       title=driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div/div[1]/div[2]/div[1]/div[2]/div[1]/h2").text
@@ -89,7 +93,7 @@ for key in results:
 
 driver.close()
 
-file_path = "webscraper/data/letters/atlasdictfinal"+letter+".json"
+file_path = "webscraper/data/letters/atlasdict"+letter+".json"
 with open(file_path, 'w') as json_file:
     json.dump(results, json_file,indent=2)
 print("Finished adding information from links.")
